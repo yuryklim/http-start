@@ -7,7 +7,9 @@ export class ServerService {
   }
 
   storeServers(servers: any[]) {
-    return this.http.post('https://http-start-f75e2.firebaseio.com/data.json', servers);
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.post('https://http-start-f75e2.firebaseio.com/data.json',
+      servers, {headers: headers});
 
   }
 }
