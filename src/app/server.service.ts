@@ -21,6 +21,9 @@ export class ServerService {
     return this.http.get('https://http-start-f75e2.firebaseio.com/data.json').pipe(map(
       (response: Response) => {
         const data = response.json();
+        for (const server of data) {
+          server.name = 'FETCHED_' + server.name;
+        }
         return data;
       }
     ));
