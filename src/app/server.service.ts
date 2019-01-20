@@ -32,4 +32,14 @@ export class ServerService {
       }
     ));
   }
+
+  getAppName() {
+    return this.http.get('https://http-start-f75e2.firebaseio.com/appName.json').pipe(
+      map(
+        (response: Response) => {
+          return response.json();
+        }
+      )
+    );
+  }
 }
